@@ -121,6 +121,7 @@
         if (id != null) {
           messageRow = $("#messages tbody tr[data-message-id='" + id + "']");
           switchTo = messageRow.next().data('message-id') || messageRow.prev().data('message-id');
+          messageRow.remove();
           if (switchTo) {
             _this.loadMessage(switchTo);
           } else {
@@ -129,11 +130,7 @@
           $.ajax({
             url: '/messages/' + id,
             type: 'DELETE',
-            success: function() {
-              return messageRow.remove();
-            },
             error: function() {
-              _this.loadMessage(id);
               return alert('Error while removing message.');
             }
           });
