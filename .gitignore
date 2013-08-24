@@ -3,3 +3,4 @@ rdoc
 
 .sass-cache
 Gemfile.lock
+*.sqlite
